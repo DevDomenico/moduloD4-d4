@@ -20,15 +20,20 @@ const fetchBooks = () => {
                     class="d-flex justify-content-between align-items-center"
                   >
                     
-                    <button class='btn btn-primary' onclick="addToCart('${book.title}', '${book.price}', '${book.asin}')"> EUR ${book.price} </button>
-                    <button class='btn btn-secondary'> Nascondi </button>
+                    <button class=' btn btn-primary' onclick="addToCart('${book.title}', '${book.price}', '${book.asin}')"> EUR ${book.price} </button>
+                    <button class=' btn btn-secondary'> Nascondi </button>
+                    <button class=' btn btn-success' onclick="rimuoviCard()" > Salta </button>
                   </div>
                 </div>
               </div> </div>`
+              
         })
         .join("")
     })
     .catch((err) => console.error(err))
+}
+const rimuoviCard = ( ) => {
+
 }
 
 const addToCart = (title, price, asin) => {
