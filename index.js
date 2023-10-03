@@ -11,7 +11,8 @@ const fetchBooks = () => {
 
       cont.innerHTML = res
         .map((book) => {
-          return ` <div class='col col-3'> <div class="card mb-4 shadow-sm" id='book_${book.asin}'>
+          return ` <div class='col col-3' id= '${book.id}'> dd
+          <div class="card mb-4 shadow-sm" id='book_${book.asin}'>
                 <img src='${book.img}' />
 
                 <div class="card-body">
@@ -22,7 +23,8 @@ const fetchBooks = () => {
                     
                     <button class=' btn btn-primary' onclick="addToCart('${book.title}', '${book.price}', '${book.asin}')"> EUR ${book.price} </button>
                     <button class=' btn btn-secondary'> Nascondi </button>
-                    <button class=' btn btn-success' onclick="rimuoviCard()" > Salta </button>
+                  <button class='btn btn-success' onclick="rimuoviCard('${book.id}')"> Salta </button>
+
                   </div>
                 </div>
               </div> </div>`
@@ -30,9 +32,11 @@ const fetchBooks = () => {
         })
         .join("")
     })
-    .catch((err) => console.error(err))
+    .catch((err) => console.error(err)) 
 }
-const rimuoviCard = ( ) => {
+const rimuoviCard = (carta ) => {
+  const el = document.querySelector(`#${carta}`);
+   el.classList.add('d-none')
 
 }
 
